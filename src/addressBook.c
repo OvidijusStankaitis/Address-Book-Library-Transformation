@@ -5,7 +5,7 @@
 #include <signal.h>
 #include <setjmp.h>
 
-#include "linkedList.h"
+#include <linkedList.h>
 
 bool ctrlc = false;
 jmp_buf jump_buffer;

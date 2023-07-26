@@ -3,7 +3,8 @@ This project provides a simple address book library implemented in C using a sin
 ## Features:
 * Display all contacts in the address book.
 * Add, delete, and find contacts in the address book.
-## Usage:
+# Usage:
+## First option:
 * Clone this repository to your local machine.
 * Compile the code using: 
 ```bash
@@ -16,6 +17,26 @@ make clean
 * Run the executable:
 ```bash
 ./src/addressBook
+```
+* Follow the on-screen instructions to interact with the address book.
+* Existing contacts from the `addresses.csv` file in the user's home directory will be loaded automatically (If the file exists).
+## Second option:
+* Clone this repository to your local machine.
+* Compile the code using: 
+```bash
+make
+```
+* Clean up files using: 
+```bash
+make clean
+```
+* Install/uninstall the program and the libraries using:
+```bash
+make install/make uninstall
+```
+* Run the program:
+```bash
+addressBook
 ```
 * Follow the on-screen instructions to interact with the address book.
 * Existing contacts from the `addresses.csv` file in the user's home directory will be loaded automatically (If the file exists).

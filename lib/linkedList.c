@@ -8,7 +8,7 @@
 #include <sys/types.h>
 #include <pwd.h>
 
-#include "linkedList.h"
+#include <linkedList.h>
 
 #define FILENAME "addresses.csv"
 #define DELIMITER ","

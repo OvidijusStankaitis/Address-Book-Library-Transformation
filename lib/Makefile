@@ -1,5 +1,4 @@
-CFLAGS := -Wall -fPIC
-
+CFLAGS := -Wall -fPIC -I../lib
 LIBRARY_NAME := liblinkedlist.so
 VERSION := 1.0
 
