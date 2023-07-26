@@ -1,18 +1,26 @@
 CFLAGS := -Wall -I../lib
-LDFLAGS := -L../lib -Wl,-rpath,'$$ORIGIN/../lib' -llinkedlist
+LDFLAGS := -L../lib -llinkedlist
 
 SRC := $(wildcard *.c)
 OBJ := $(SRC:.c=.o)
 
-OUTPUT:= addressBook
+BIN := addressBook
 
-all: $(OUTPUT)
+.PHONY: all clean install uninstall
 
-$(OUTPUT): $(OBJ)
-	$(CC) $(CFLAGS) $(OBJ) $(LDFLAGS) -o $(OUTPUT)
+all: $(BIN)
+
+$(BIN): $(OBJ)
+	$(CC) $(CFLAGS) $(OBJ) $(LDFLAGS) -o $(BIN)
 
 %.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-	rm -f $(OUTPUT) $(OBJ)
+	$(RM) $(BIN) $(OBJ)
+
+install: $(BIN)
+	sudo cp $(BIN) /usr/local/bin/
+
+uninstall:
+	sudo rm -f /usr/local/bin/$(BIN)

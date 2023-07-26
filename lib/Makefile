@@ -3,7 +3,6 @@ CFLAGS := -Wall -fPIC
 LIBRARY_NAME := liblinkedlist.so
 VERSION := 1.0
 
-
 SRC := $(wildcard *.c)
 OBJ := $(SRC:.c=.o)
 
@@ -17,5 +16,15 @@ $(LIBRARY_NAME): $(OBJ)
 	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-	rm -f $(LIBRARY_NAME) $(LIBRARY_NAME).$(VERSION) $(OBJ)
+	$(RM) $(LIBRARY_NAME) $(LIBRARY_NAME).$(VERSION) $(OBJ)
 
+install: $(LIBRARY_NAME)
+	sudo cp $(LIBRARY_NAME).$(VERSION) /usr/local/lib/
+	sudo ln -sf /usr/local/lib/$(LIBRARY_NAME).$(VERSION) /usr/local/lib/$(LIBRARY_NAME)
+	sudo ldconfig
+
+uninstall:
+	sudo rm -f /usr/local/lib/$(LIBRARY_NAME).$(VERSION)
+	sudo rm -f /usr/local/lib/$(LIBRARY_NAME)
+
+.PHONY: all clean install uninstall
