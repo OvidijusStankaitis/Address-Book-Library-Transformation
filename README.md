@@ -15,7 +15,7 @@ make clean
 ```
 * Install/uninstall the program and the libraries using:
 ```bash
-make install/make uninstall
+sudo make install/make uninstall
 ```
 * Run the program:
 ```bash

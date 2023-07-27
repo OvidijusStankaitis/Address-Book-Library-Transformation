@@ -20,7 +20,7 @@ clean:
 	$(RM) $(BIN) $(OBJ)
 
 install: $(BIN)
-	sudo cp $(BIN) /usr/local/bin/
+	install -m 755 $(BIN) /usr/local/bin/
 
 uninstall:
-	sudo rm -f /usr/local/bin/$(BIN)
+	$(RM) /usr/local/bin/$(BIN)
